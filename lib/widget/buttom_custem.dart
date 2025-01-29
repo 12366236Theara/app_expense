@@ -13,19 +13,20 @@ class buttomCustem extends StatelessWidget {
     this.onPressed, {
     this.textColor = Colors.white,
     this.isLoading = false, // Default is false
-    Key? key, LinearGradient? gradient,
-  }) : super(key: key);
+    super.key,
+    LinearGradient? gradient,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: isLoading ? null : onPressed, // Disable button if loading
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(color), // Use solid color
-        padding: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(color), // Use solid color
+        padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
         ),
-        shape: MaterialStateProperty.all(
+        shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),

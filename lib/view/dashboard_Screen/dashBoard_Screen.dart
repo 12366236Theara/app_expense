@@ -122,30 +122,52 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         line(),
                         // Category Filter Dropdown
+                        SizedBox(
+                          height: 20,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          child: DropdownButton<String>(
-                            alignment: Alignment.center,
-                            value: selectedCategory,
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedCategory = newValue;
-                              });
-                            },
-                            isExpanded: true,
-                            icon: Icon(Icons.arrow_drop_down),
-                            items: ['All', ...dateMap].map((category) {
-                              return DropdownMenuItem(
-                                value: category,
-                                child: Text(
-                                  category,
-                                  style: TextStyle(fontSize: 16),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Category Filter",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black87,
                                 ),
-                              );
-                            }).toList(),
+                              ),
+                              DropdownButton<String>(
+                                alignment: Alignment.center,
+                                iconSize: 40,
+                                borderRadius: BorderRadius.circular(10),
+                                value: selectedCategory,
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    selectedCategory = newValue;
+                                  });
+                                },
+                                isExpanded: true,
+                                // style: TextStyle(
+                                //   decorationColor: Colors.black,
+                                // ),
+                                icon: Icon(Icons.arrow_drop_down),
+                                items: ['All', ...dateMap].map((category) {
+                                  return DropdownMenuItem(
+                                    value: category,
+                                    child: Text(
+                                      category,
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ],
                           ),
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 26),
                         // Recent Expenses List
                         Text(
                           "Recent Expenses",
@@ -155,7 +177,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             color: Colors.black87,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 26),
                         ListView.builder(
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),

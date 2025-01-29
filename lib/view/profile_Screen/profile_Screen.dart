@@ -36,7 +36,7 @@ class ProfileScreen extends StatelessWidget {
                   const SizedBox(height: 16.0),
                   // User Name
                   const Text(
-                    'John Doe',
+                    'Theara',
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                   const SizedBox(height: 8.0),
                   // Email
                   const Text(
-                    'john.doe@example.com',
+                    'theara20046@gmail.com',
                     style: TextStyle(
                       fontSize: 16,
                     ),
@@ -55,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
 
               // Profile Options
               Padding(
-                padding: const EdgeInsets.only(right: 16 , left: 16 , top: 16),
+                padding: const EdgeInsets.only(right: 16, left: 16, top: 16),
                 child: Column(
                   children: [
                     _buildProfileOption(
@@ -94,9 +94,28 @@ class ProfileScreen extends StatelessWidget {
                       icon: Icons.logout,
                       title: 'Logout',
                       onTap: () {
-                        Toekn.removeToken();
-                        Get.offAll(OnboardingScreen());
-                        // Handle logout functionality
+                        Get.defaultDialog(
+                          title: 'Logout',
+                          middleText: 'Are you sure you want to log out?',
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Get.back(); // Close the dialog if "Cancel" is pressed
+                              },
+                              child: Text('Cancel',
+                                  style: TextStyle(color: Colors.red)),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Toekn.removeToken(); // Remove the token
+                                Get.offAll(
+                                    OnboardingScreen()); // Navigate to OnboardingScreen
+                              },
+                              child: Text('OK',
+                                  style: TextStyle(color: Colors.blue)),
+                            ),
+                          ],
+                        );
                       },
                     ),
                   ],

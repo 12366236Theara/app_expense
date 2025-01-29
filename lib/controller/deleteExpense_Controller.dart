@@ -29,9 +29,6 @@ class DeleteexpenseController extends GetxController {
         // Fetch updated expenses after deleting an item
         _getExpenseController.fetchExpenses();
 
-        Get.snackbar("Success", "Expense deleted successfully!",
-            snackPosition: SnackPosition.TOP);
-
         Get.offAll(MainScreen()); // Navigate after successful delete
       } else {
         deleteSuccess.value = false;

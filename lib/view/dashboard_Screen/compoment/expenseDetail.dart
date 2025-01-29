@@ -53,12 +53,12 @@ class _ExpenseDetailScreenState extends State<ExpenseDetailScreen> {
       appBar: AppBar(
         title: const Text(
           "Expense Details",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.deepPurple,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
@@ -86,7 +86,7 @@ class _ExpenseDetailScreenState extends State<ExpenseDetailScreen> {
 
   Widget _buildDetailItem(IconData icon, String title, String value) {
     return Card(
-      elevation: 4,
+      elevation: 2,
       margin: const EdgeInsets.symmetric(vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ListTile(

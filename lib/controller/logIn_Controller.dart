@@ -12,15 +12,12 @@ class LoginController extends GetxController {
     _loginService = LoginService(); // Initialize it here
   }
 
-  
-
   Future<void> login(String email, String password) async {
     isLoarding.value = true;
 
     try {
-      print("login: =================$email");
       final result = await _loginService.postLogin(email, password);
-      print("===============================$email");
+
       print('Success $result');
       Get.offAll(() => const MainScreen());
     } catch (e) {

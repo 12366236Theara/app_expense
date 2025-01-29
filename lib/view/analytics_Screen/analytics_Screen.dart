@@ -1,3 +1,5 @@
+import 'package:app_cating/view/analytics_Screen/compoment/detailAllItem_Screen.dart';
+import 'package:app_cating/view/analytics_Screen/compoment/widget_Buttom.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -79,11 +81,18 @@ class AnalyticsScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
               ),
+              const SizedBox(height: 16.0),
+              // "All Items" Button to view all items
+              widgetButtom(() {
+                Get.to(AllItemsScreen());
+              }),
               const SizedBox(height: 12.0),
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: controller.categoryTotals.length,
+                itemCount: controller.categoryTotals.length > 4
+                    ? 4
+                    : controller.categoryTotals.length,
                 itemBuilder: (context, index) {
                   String category =
                       controller.countItemcategory.keys.elementAt(index);
