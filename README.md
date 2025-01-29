@@ -1,4 +1,4 @@
-# app_cating
+# app_expense
 
 A new Flutter project.
 
